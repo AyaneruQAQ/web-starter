@@ -1,7 +1,7 @@
-import {en as myExample} from '@/views/Example/_lang/index'
+// import {en as myExample} from '@/views/Example/_lang/index'
 
 export default {
-  myExample,
+  // myExample,
   route: {
     dashboard: 'Dashboard',
     documentation: 'Documentation',

@@ -1,7 +1,7 @@
-import {zh as myExample} from '@/views/Example/_lang/index'
+// import {zh as myExample} from '@/views/Example/_lang/index'
 
 export default {
-  myExample,
+  // myExample,
   route: {
     dashboard: '首页',
     documentation: '文档',

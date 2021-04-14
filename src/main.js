@@ -16,7 +16,7 @@ import router from './router'
 import i18n from './lang' // internationalization
 import './icons' // icon
 import './permission' // permission control
-import './utils/error-log' // error log
+// import './utils/error-log' // error log
 import './directive/auth/auth'
 
 import * as filters from './filters' // global filters

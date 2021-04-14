@@ -81,23 +81,6 @@ export const constantRoutes = [
       },
     ]
   },
-  {
-    path:'/draggable',
-    component:Layout,
-    redirect:'/draggable/index',
-    children:[
-      {
-        path:'index',
-        component:() => import('@/views/Example/Draggable/index'),
-        name:'draggable',
-        meta:{
-          title:'draggable',
-          
-        }
-      }
-    ]
-    
-  },
   
 ]
 
@@ -109,7 +92,7 @@ export const asyncRoutes = [
   {
     path: '/permission',
     component: Layout,
-    redirect: '/permission/page',
+    redirect: '/permission/menu',
     alwaysShow: true, // will always show the root menu
     name: 'Permission',
     meta: {
@@ -119,12 +102,11 @@ export const asyncRoutes = [
     },
     children: [
       {
-        path: 'page',
-        component: () => import('@/views/permission/page'),
-        name: 'PagePermission',
+        path: 'menu',
+        component: () => import('@/views/permission/menu'),
+        name: 'menu',
         meta: {
-          title: 'pagePermission',
-          roles: ['admin'] // or you can only set roles in sub nav
+          title: 'menu',
         }
       },
       {
@@ -147,88 +129,88 @@ export const asyncRoutes = [
       },
     ]
   },
-  {
-    path: '/example',
-    component: Layout,
-    redirect: '/example/index',
-    name:'example',
-    auth: 'exam.browse',
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/Example/index'),
-        name: 'example',
-        auth: 'exam.browse',
-        meta: { title: 'example', icon: 'user',roles:['admin', 'editor'] }
-      }
-    ]
-  },
+  // {
+  //   path: '/example',
+  //   component: Layout,
+  //   redirect: '/example/index',
+  //   name:'example',
+  //   auth: 'exam.browse',
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       component: () => import('@/views/Example/index'),
+  //       name: 'example',
+  //       auth: 'exam.browse',
+  //       meta: { title: 'example', icon: 'user',roles:['admin', 'editor'] }
+  //     }
+  //   ]
+  // },
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]
 
-export const asyncRoutesMap = {
-  '/permission': {
-    component:Layout,
-    redirect: '/permission/page',
-    alwaysShow: true, // will always show the root menu
-    meta: {
-      title: 'permission',
-      icon: 'lock',
-    },
-  },
-/*   '/permission/page': {
-    component: () => import('@/views/permission/page'),
-    meta: {
-      title: 'pagePermission',
-    }
-  }, */
-  '/permission/directive':{ 
-    component:() => import('@/views/permission/directive'), 
-    meta: {
-      title: 'directivePermission'
-    }
-  },
-  '/permission/role':{ 
-    component:() => import('@/views/permission/role'),
-    meta: {
-      title: 'rolePermission',
-    }
-  },
-  '/permission/menu':{
-    component: () => import('@/views/permission/menu'),
-    meta:{
-      title:'menuManage'
-    }
-  },
-  // ...chartsRouterMap,
-  // ...tableRouterMap,
-  // ...nestedRouterMap,
-  '/myexample':{
-    component:Layout,
-    redirect:'/myexample/index',
-    meta:{
-      title:'example',
-      icon: 'user'
+// export const asyncRoutesMap = {
+//   '/permission': {
+//     component:Layout,
+//     redirect: '/permission/page',
+//     alwaysShow: true, // will always show the root menu
+//     meta: {
+//       title: 'permission',
+//       icon: 'lock',
+//     },
+//   },
+// /*   '/permission/page': {
+//     component: () => import('@/views/permission/page'),
+//     meta: {
+//       title: 'pagePermission',
+//     }
+//   }, */
+//   '/permission/directive':{ 
+//     component:() => import('@/views/permission/directive'), 
+//     meta: {
+//       title: 'directivePermission'
+//     }
+//   },
+//   '/permission/role':{ 
+//     component:() => import('@/views/permission/role'),
+//     meta: {
+//       title: 'rolePermission',
+//     }
+//   },
+//   '/permission/menu':{
+//     component: () => import('@/views/permission/menu'),
+//     meta:{
+//       title:'menuManage'
+//     }
+//   },
+//   // ...chartsRouterMap,
+//   // ...tableRouterMap,
+//   // ...nestedRouterMap,
+//   '/myexample':{
+//     component:Layout,
+//     redirect:'/myexample/index',
+//     meta:{
+//       title:'example',
+//       icon: 'user'
 
-    }
-  },
-  '/myexample/index': { 
-    component:() => import('@/views/Example/index'),
-    meta:{
-      title:'index'
-    }
+//     }
+//   },
+//   '/myexample/index': { 
+//     component:() => import('@/views/Example/index'),
+//     meta:{
+//       title:'index'
+//     }
 
-  },
-  '/myexample/dynamic':{
-    component:() => import('@/views/Example/DynamicRule/index'),
-    meta:{
-      title:'dynamic',
+//   },
+//   '/myexample/dynamic':{
+//     component:() => import('@/views/Example/DynamicRule/index'),
+//     meta:{
+//       title:'dynamic',
       
-    }
-  }
-}
+//     }
+//   }
+// }
 
 const createRouter = () => new Router({
   mode: 'history', // require service support
