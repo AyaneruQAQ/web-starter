@@ -1,0 +1,35 @@
+// base color
+$blue: #1176FF;
+$gray:#f5f5f5;
+
+$textColor: #666;
+$activeText: #333;
+$shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+
+$sideBarWidth: 320px;
+$sideBarHeight: 1006px;                                                                                                
+
+// navbar
+$NavBarHeight: 74px;
+
+// font-size
+$size: 20px;
+$h1: 44px;
+$h2: 34px;
+$h3: 30px;
+$h4: 26px;
+$h5: 16px;
+
+:export {
+  blue: $blue;
+  textColor: $textColor;
+  activeText: $activeText;
+  gray: $gray;
+  shadow: $shadow;
+  size: $size;
+  h1: $h1;
+  h2: $h2;
+  h3: $h3;
+  h4: $h4;
+  h5: $h5;
+}

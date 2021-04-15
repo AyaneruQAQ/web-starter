@@ -51,7 +51,7 @@ export const constantRoutes = [
   {
     path: '/login',
     component: () => import('@/views/login/index'),
-    hidden: true //hidden:true  表示不在sidebar中渲染
+    hidden: true // hidden:true  表示不在sidebar中渲染
   },
   {
     path: '/auth-redirect',
@@ -78,10 +78,10 @@ export const constantRoutes = [
         component: () => import('@/views/dashboard/index'),
         name: 'Dashboard',
         meta: { title: 'dashboard', icon: 'dashboard', affix: true }
-      },
+      }
     ]
-  },
-  
+  }
+
 ]
 
 /**
@@ -106,7 +106,7 @@ export const asyncRoutes = [
         component: () => import('@/views/permission/menu'),
         name: 'menu',
         meta: {
-          title: 'menu',
+          title: 'menu'
         }
       },
       {
@@ -126,91 +126,29 @@ export const asyncRoutes = [
           title: 'rolePermission',
           roles: ['admin']
         }
-      },
+      }
     ]
   },
-  // {
-  //   path: '/example',
-  //   component: Layout,
-  //   redirect: '/example/index',
-  //   name:'example',
-  //   auth: 'exam.browse',
-  //   children: [
-  //     {
-  //       path: 'index',
-  //       component: () => import('@/views/Example/index'),
-  //       name: 'example',
-  //       auth: 'exam.browse',
-  //       meta: { title: 'example', icon: 'user',roles:['admin', 'editor'] }
-  //     }
-  //   ]
-  // },
+  {
+    path: '/myscss',
+    component: Layout,
+    redirect: '/myscss/index',
+    name: 'scss',
+    auth: 'exam.browse',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/scss/index'),
+        name: 'scss',
+        auth: 'exam.browse',
+        meta: { title: 'scss示意', icon: 'user', roles: ['admin', 'editor'] }
+      }
+    ]
+  },
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]
-
-// export const asyncRoutesMap = {
-//   '/permission': {
-//     component:Layout,
-//     redirect: '/permission/page',
-//     alwaysShow: true, // will always show the root menu
-//     meta: {
-//       title: 'permission',
-//       icon: 'lock',
-//     },
-//   },
-// /*   '/permission/page': {
-//     component: () => import('@/views/permission/page'),
-//     meta: {
-//       title: 'pagePermission',
-//     }
-//   }, */
-//   '/permission/directive':{ 
-//     component:() => import('@/views/permission/directive'), 
-//     meta: {
-//       title: 'directivePermission'
-//     }
-//   },
-//   '/permission/role':{ 
-//     component:() => import('@/views/permission/role'),
-//     meta: {
-//       title: 'rolePermission',
-//     }
-//   },
-//   '/permission/menu':{
-//     component: () => import('@/views/permission/menu'),
-//     meta:{
-//       title:'menuManage'
-//     }
-//   },
-//   // ...chartsRouterMap,
-//   // ...tableRouterMap,
-//   // ...nestedRouterMap,
-//   '/myexample':{
-//     component:Layout,
-//     redirect:'/myexample/index',
-//     meta:{
-//       title:'example',
-//       icon: 'user'
-
-//     }
-//   },
-//   '/myexample/index': { 
-//     component:() => import('@/views/Example/index'),
-//     meta:{
-//       title:'index'
-//     }
-
-//   },
-//   '/myexample/dynamic':{
-//     component:() => import('@/views/Example/DynamicRule/index'),
-//     meta:{
-//       title:'dynamic',
-      
-//     }
-//   }
-// }
 
 const createRouter = () => new Router({
   mode: 'history', // require service support
@@ -220,7 +158,7 @@ const createRouter = () => new Router({
 
 const router = createRouter()
 
-//钉钉登录
+// 钉钉登录
 router.beforeEach((to, from, next) => {
   if (window.location.href.indexOf('dingtalk/redirect') >= 0) {
     const path = window.location.href
@@ -234,11 +172,10 @@ router.beforeEach((to, from, next) => {
     console.log(path)
     const token = getQueryStringWithPath(path, 'token')
     console.log(token)
-    Cookies.set('Admin-Token', token)
     const timer = setTimeout(_ => {
       window.location.href = '/'
       clearTimeout(timer)
-    },0)
+    }, 0)
     return false
   }
   next()
