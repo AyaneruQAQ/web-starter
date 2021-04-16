@@ -42,7 +42,7 @@ module.exports = {
       warnings: false,
       errors: true
     },
-    proxy:{
+    proxy: {
       // [process.env.VUE_APP_MOCK_API]:{
       //   target:'xxx',
       //   pathRewrite:{
@@ -50,12 +50,12 @@ module.exports = {
       //   }
       // },
       // 后端提供的接口走下面代理，原模板mock接口还是走mock
-      [process.env.VUE_APP_BASE_API]:{
-        target:'http://172.16.9.140:9000',
-        pathRewrite:{
+      [process.env.VUE_APP_BASE_API]: {
+        target: 'http://172.16.9.140:9000',
+        pathRewrite: {
           ['^' + process.env.VUE_APP_BASE_API]: ''
         }
-      },
+      }
 
     },
     after: require('./mock/mock-server.js')
@@ -72,10 +72,10 @@ module.exports = {
     plugins: [
       gitRevisionPlugin,
       new webpack.DefinePlugin({
-          "VERSION": JSON.stringify(gitRevisionPlugin.version())
-      }),
+        'VERSION': JSON.stringify(gitRevisionPlugin.version())
+      })
       // process.env.NODE_ENV === 'production'&&(new LodashModuleReplacementPlugin())
-    ],
+    ]
   },
   chainWebpack(config) {
     // it can improve the speed of the first screen, it is recommended to turn on preload
@@ -120,7 +120,7 @@ module.exports = {
             .plugin('ScriptExtHtmlWebpackPlugin')
             .after('html')
             .use('script-ext-html-webpack-plugin', [{
-            // `runtime` must same as runtimeChunk name. default is `runtime`
+              // `runtime` must same as runtimeChunk name. default is `runtime`
               inline: /runtime\..*\.js$/
             }])
             .end()
