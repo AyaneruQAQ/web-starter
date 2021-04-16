@@ -6,7 +6,7 @@
         <h3 class="title">
           {{ $t('login.title') }}
         </h3>
-        <lang-select class="set-language" />
+        <!-- <lang-select class="set-language" /> -->
       </div>
 
       <el-form-item prop="username">
@@ -51,49 +51,31 @@
       <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">
         {{ $t('login.logIn') }}
       </el-button>
-
+<!-- 
       <div class="dingTalk">
         <div class="title">第三方登录</div>
         <img src="@/assets/dingding.png"  class="ding-img" @click="handleDingLogin"/>
-      </div>
-
-      <!-- <div style="position:relative">
-        <div class="tips">
-          <span>{{ $t('login.username') }} : admin</span>
-          <span>{{ $t('login.password') }} : {{ $t('login.any') }}</span>
-        </div>
-        <div class="tips">
-          <span style="margin-right:18px;">
-            {{ $t('login.username') }} : editor
-          </span>
-          <span>{{ $t('login.password') }} : {{ $t('login.any') }}</span>
-        </div>
-
-        <el-button class="thirdparty-button" type="primary" @click="showDialog=true">
-          {{ $t('login.thirdparty') }}
-        </el-button>
       </div> -->
     </el-form>
 
-    <el-dialog :title="$t('login.thirdparty')" :visible.sync="showDialog">
+    <!-- <el-dialog :title="$t('login.thirdparty')" :visible.sync="showDialog">
       {{ $t('login.thirdpartyTips') }}
       <br>
       <br>
       <br>
-      <!-- <social-sign /> -->
       <SocialSign/>
-    </el-dialog>
+    </el-dialog> -->
   </div>
 </template>
 
 <script>
 import { validUsername } from '@/utils/validate'
-import LangSelect from '@/components/LangSelect'
-import SocialSign from './components/SocialSignin'
+// import LangSelect from '@/components/LangSelect'
+// import SocialSign from './components/SocialSignin'
 
 export default {
   name: 'Login',
-  components: { LangSelect, SocialSign },
+  // components: { LangSelect, },
   data() {
     const validateUsername = (rule, value, callback) => {
       if (!validUsername(value)) {

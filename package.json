@@ -61,6 +61,7 @@
     "lodash-webpack-plugin": "^0.11.6",
     "mockjs": "1.0.1-beta3",
     "plop": "2.3.0",
+    "postcss-px-to-viewport": "^1.1.1",
     "runjs": "4.3.2",
     "sass": "1.26.2",
     "sass-loader": "8.0.2",
@@ -78,9 +79,7 @@
     "node": ">=8.9",
     "npm": ">= 3.0.0"
   },
-  "keywords": [
-
-  ],
+  "keywords": [],
   "license": "MIT",
   "lint-staged": {
     "src/**/*.{js,vue}": [
