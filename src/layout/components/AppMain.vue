@@ -1,6 +1,12 @@
 <template>
   <section class="app-main">
-    <transition name="fade-transform" mode="out-in">
+    <Version />
+
+    <transition
+      name="fade-transform"
+      mode="out-in"
+    >
+
       <keep-alive :include="cachedViews">
         <router-view :key="key" />
       </keep-alive>
@@ -9,8 +15,13 @@
 </template>
 
 <script>
+import Version from './Version/index'
+
 export default {
   name: 'AppMain',
+  components: {
+    Version
+  },
   computed: {
     cachedViews() {
       return this.$store.state.tagsView.cachedViews
@@ -31,7 +42,7 @@ export default {
   overflow: hidden;
 }
 
-.fixed-header+.app-main {
+.fixed-header + .app-main {
   padding-top: 50px;
 }
 
@@ -41,7 +52,7 @@ export default {
     min-height: calc(100vh - 84px);
   }
 
-  .fixed-header+.app-main {
+  .fixed-header + .app-main {
     padding-top: 84px;
   }
 }
